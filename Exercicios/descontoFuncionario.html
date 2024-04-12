@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desconto Funcionário</title>
+</head>
+<body>
+
+    <script>
+        // Função para calcular o desconto com base no tipo de cliente e no valor total da compra
+const tipoCliente = parseInt(prompt("Digite o tipo de cliente (1 - Cliente, 2 - Funcionário, 3 - VIP):"));
+const valorCompra = parseFloat(prompt("Digite o valor total da compra:"));
+    
+
+function calcularValorTotal(valorCompra, tipoCliente) {
+    let desconto = 0;
+
+    switch (tipoCliente) {
+        case 1: // Cliente comum
+            desconto = 0;
+            break;
+        case 2: // Funcionário
+            desconto = valorCompra * 0.1; // 10% de desconto
+            break;
+        case 3: // VIP
+            desconto = valorCompra * 0.05; // 5% de desconto
+            break;
+        default:
+            alert ("Tipo de cliente inválido.");
+            return;
+    }
+
+    return valorCompra - desconto;
+}
+
+// Função principal
+function main() {
+    
+    const valorTotal = calcularValorTotal(valorCompra, tipoCliente);
+    alert (`O valor total a ser pago é R$ ${valorTotal.toFixed(2)}.`);
+}
+
+// Chamada da função principal
+main();
+    </script>
+</body>
+</html>
